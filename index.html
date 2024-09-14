@@ -85,7 +85,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">About</span>
-        <h2>About</h2>
+        <h2>About Thwaite Howe</h2>
         <p>a Victorian family country home with ten bedrooms in an ideal Lake District village setting</p>
       </div><!-- End Section Title -->
 
@@ -497,85 +497,102 @@
       </div>
 
     </section><!-- /Portfolio Section -->
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Contact</span>
-        <h2>Contact</h2>
-        <p>Please reach out to us</p>
-      </div><!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Please, if you would like to use Thwaite Howe for a large holiday let, a family reunion, an offsite business gathering, or other 
+        family or group gathering, we would be pleased to hear from you.  The following message template can be used, or simply email us on</p>
+    </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-5">
+      <div class="row gy-4">
 
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Thornthwaite, Keswick, CA12 5SA, United Kingdom</p>
-                </div>
+        <div class="col-lg-5">
+
+          <div class="info-wrap">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>Thornthwaite, Keswick, CA12 5SA, United Kingdom</p>
               </div>
-            </div><!-- End Info Item -->
+            </div>
 
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>thwaite.howe.info@gmail.com</p>
-                </div>
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+84 906 395 679</p>
               </div>
-            </div><!-- End Info Item -->
+            </div>
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>thwaite.howe.info@gmail.com</p>
+              </div>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2310.14610234878!2d-3.2049640000000004!3d54.619034000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDM3JzA4LjUiTiAzwrAxMicxNy45Ilc!5e0!3m2!1sen!2s!4v1726298105898!5m2!1sen!2s" frameborder="0" style="border:0; width: 100%; height: 270px;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
           </div>
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
+        <div class="col-lg-7">
+          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4">
 
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+              <div class="col-md-6">
+                <label for="name-field" class="pb-2">Your Name</label>
+                <input type="text" name="name" id="name-field" class="form-control" required="">
+              </div>
+
+              <div class="col-md-6">
+                <label for="email-field" class="pb-2">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email-field" required="">
+              </div>
+
+              <div class="col-md-12">
+                <label for="subject-field" class="pb-2">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject-field" required="">
+              </div>
+
+              <div class="col-md-12">
+                <label for="message-field" class="pb-2">Message</label>
+                <textarea class="form-control" name="message" rows="11" id="message-field" required=""></textarea>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                <button type="submit">Send Message</button>
+              </div>
+
             </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form><!-- End Contact Form -->
+          </form>
+        </div><!-- End Contact Form -->
 
       </div>
 
-    </section><!-- /Contact Section -->
+    </div>
 
+  </section><!-- /Contact Section -->
   </main>
 
   <footer id="footer" class="footer dark-background">
 
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
+        <div class="col-lg-6 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
             <span class="sitename">Thwaite Howe</span>
           </a>
@@ -588,11 +605,11 @@
           </div>
           <div class="social-links d-flex mt-4">
             <a href="https://www.facebook.com/profile.php?id=61557889719430" target="_blank" ><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/thwaitehowe/" target="_blank"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-6 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#home">Home</a></li>

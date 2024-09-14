@@ -1667,27 +1667,34 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  margin-bottom: 30px;
+  height: 100%;
+  border-top: 3px solid var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.contact .info-item {
+  margin-bottom: 40px;
 }
 
 .contact .info-item i {
   font-size: 20px;
   color: var(--accent-color);
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  border-radius: 50%;
+  border-radius: 50px;
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 40%);
   margin-right: 15px;
 }
 
 .contact .info-item h3 {
+  padding: 0;
   font-size: 18px;
   font-weight: 700;
-  margin: 0 0 2px 0;
+  margin-bottom: 5px;
 }
 
 .contact .info-item p {
@@ -1705,6 +1712,8 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  border-top: 3px solid var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
 }
 
 @media (max-width: 575px) {
@@ -1743,7 +1752,7 @@ section,
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
