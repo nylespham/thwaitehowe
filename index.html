@@ -29,6 +29,9 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
+  <!-- FullCalendar -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
 
 </head>
 
@@ -363,37 +366,15 @@
       </div><!-- End Section Title -->
 
       <div class="container">
-
         <div class="row gy-4">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <p>
-              Thwaite Howe can be booked directly with us by email sent to <a href="mailto:thwaite.howe.info@gmail.com">thwaite.howe.info@gmail.com</a>. We prefer to work directly; a short email or quick
-              call should help us to confirm the suitability of Thwaite Howe for your specific needs.  Once you and ourselves are happy and agree, we confirm, 
-              put an agreement in place and the booked dates are yours.  Thereafter, between your booking date and up to your check-in date, we will be available to answer any queries you have.
-            </p>
-            <p>
-              The maximum number of people Thwaite Howe sleeps is 22 plus babies in ten (10) bedrooms.
-              We provide two travel cots and high chairs for babies (you can bring more with you, if needed). 
-              Also, we can accommodate smaller groups down to eight (8) and the price can be adjusted accordingly.
-              Finally your pet dogs are allowed; we allow up to three (3) dogs, and please ensure you inform us. 
-            </p>
-            <p>
-              We would love to hear from you; drop us a line with your Booking interest and we will be pleased to respond to your enquiry.
-            </p>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="250">
             <div class="content ps-0 ps-lg-5">
-
-
-              <div class="position-relative mt-4">
-                <img src="assets/img/01_external/TH-PARKING-MJW_6047.jpg" class="img-fluid rounded-4" alt="">
-              </div>
+              <!-- Calendar Container -->
+              <div id="calendar" class="mb-4"></div>
             </div>
           </div>
         </div>
-
       </div>
-
     </section>
 
     <section id="call-to-action" class="call-to-action section dark-background">
@@ -1234,6 +1215,102 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- FullCalendar Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        // events: [
+        //   {
+        //     "title": "CLOSED - Not available",
+        //     "start": "2025-06-26T17:00:00.000Z",
+        //     "end": "2025-06-28T17:00:00.000Z",
+        //     "className": "event-booking"
+        //   },
+        //   {
+        //     "title": "CLOSED - Not available",
+        //     "start": "2025-07-18T17:00:00.000Z",
+        //     "end": "2025-07-25T17:00:00.000Z",
+        //     "className": "event-airbnb"
+        //   },
+        //   {
+        //     "title": "CLOSED - Not available",
+        //     "start": "2025-08-07T17:00:00.000Z",
+        //     "end": "2025-08-09T17:00:00.000Z",
+        //     "className": "event-booking"
+        //   },
+        // ],
+        events: {
+          url: 'http://localhost:3000/api/availability', // Replace with your actual API endpoint
+          method: 'GET',
+          failure: function() {
+            alert('There was an error while fetching events!');
+          },
+          // Optional: Transform the API response to match FullCalendar's event format
+          success: function(content) {
+            // If your API returns data in a different format, transform it here
+            return content.map(event => ({
+              title: event.title,
+              start: event.start,
+              end: event.end,
+              className: event.className,
+              // Add any other event properties you need
+            }));
+          }
+        },
+        selectable: true,
+        selectMirror: true,
+        dayMaxEvents: true,
+        eventDidMount: function(info) {
+          info.el.title = info.event.title;
+        },
+        eventContent: function(arg) {
+          return {
+            html: `<div class="fc-event-main-frame">
+                    <div class="fc-event-title-container">
+                      <div class="fc-event-title">${arg.event.title}</div>
+                    </div>
+                  </div>`
+          };
+        }
+      });
+      calendar.render();
+    });
+  </script>
+
+  <!-- Add custom CSS for the calendar -->
+  <style>
+    .fc-event {
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+    .fc-event-title {
+      font-weight: 500;
+    }
+    .fc-day-today {
+      background-color: rgba(220, 53, 69, 0.1) !important;
+    }
+
+    /* Event type styles */
+    .event-airbnb {
+      background-color: #dc3545 !important;
+      border-color: #dc3545 !important;
+      color: #ffffff !important;
+    }
+
+    .event-booking {
+      background-color: #074799 !important;
+      border-color: #074799 !important;
+      color: #ffffff !important;
+    }
+  </style>
 
 </body>
 
